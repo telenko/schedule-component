@@ -1,0 +1,8 @@
+:host {
+    height: 100%;
+    position: absolute;
+}
+::slotted(schedule-day-event) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+}

@@ -1,0 +1,49 @@
+:host {
+    --timeline-width: 45px;
+    --schedule-border-color: rgba(120,120,120,0.2);
+}
+
+.container {
+    display: flex;
+}
+.resource-header-cont {
+    margin-left: 42px;
+    display: flex;
+}
+.header {
+    text-align: center;
+}
+.header:not(:last-child) {
+    border-right: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+}
+schedule-timeline {
+    border-top: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+}
+:host {
+    display: block;
+    border: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+    padding-left: var(--timeline-width);
+}
+.resource-content-cont {
+    border-left: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+    border-top: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+    width: 100%;
+}
+schedule-day-board {
+    margin-left: calc(var(--timeline-width) * -1);
+    height: 100%;
+    width: calc(100% + var(--timeline-width));
+    box-sizing: border-box;
+}
+
+
+::slotted(schedule-resource:not(:last-child)) {
+    border-right: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+}
+::slotted(schedule-resource:first-child) {
+    border-left: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));
+}
+/* ::slotted(schedule-resource) { */
+    /* padding-left: 10px;
+    padding-right: 10px; */
+/* } */
