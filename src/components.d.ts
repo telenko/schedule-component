@@ -15,13 +15,6 @@ import {
 import {
   ScheduleResource,
 } from './view/ScheduleResource';
-import {
-  DateOffset as DateOffset2,
-  EventDimension as EventDimension2,
-} from './components/timeline-component/timeline-component';
-import {
-  ScheduleEvent,
-} from './view/ScheduleEvent';
 
 
 export namespace Components {
@@ -59,16 +52,6 @@ export namespace Components {
 
   interface ScheduleResource {}
   interface ScheduleResourceAttributes extends StencilHTMLAttributes {}
-
-  interface ScheduleTimeline {
-    'getDateOffset': (date: Date) => DateOffset;
-    'getEventDimensions': (event: ScheduleEvent) => EventDimension;
-    'getWidth': () => string;
-    'range': String;
-  }
-  interface ScheduleTimelineAttributes extends StencilHTMLAttributes {
-    'range'?: String;
-  }
 }
 
 declare global {
@@ -77,7 +60,6 @@ declare global {
     'ScheduleDay': Components.ScheduleDay;
     'ScheduleDayEvent': Components.ScheduleDayEvent;
     'ScheduleResource': Components.ScheduleResource;
-    'ScheduleTimeline': Components.ScheduleTimeline;
   }
 
   interface StencilIntrinsicElements {
@@ -85,7 +67,6 @@ declare global {
     'schedule-day': Components.ScheduleDayAttributes;
     'schedule-day-event': Components.ScheduleDayEventAttributes;
     'schedule-resource': Components.ScheduleResourceAttributes;
-    'schedule-timeline': Components.ScheduleTimelineAttributes;
   }
 
 
@@ -113,18 +94,11 @@ declare global {
     new (): HTMLScheduleResourceElement;
   };
 
-  interface HTMLScheduleTimelineElement extends Components.ScheduleTimeline, HTMLStencilElement {}
-  var HTMLScheduleTimelineElement: {
-    prototype: HTMLScheduleTimelineElement;
-    new (): HTMLScheduleTimelineElement;
-  };
-
   interface HTMLElementTagNameMap {
     'schedule-day-board': HTMLScheduleDayBoardElement
     'schedule-day': HTMLScheduleDayElement
     'schedule-day-event': HTMLScheduleDayEventElement
     'schedule-resource': HTMLScheduleResourceElement
-    'schedule-timeline': HTMLScheduleTimelineElement
   }
 
   interface ElementTagNameMap {
@@ -132,7 +106,6 @@ declare global {
     'schedule-day': HTMLScheduleDayElement;
     'schedule-day-event': HTMLScheduleDayEventElement;
     'schedule-resource': HTMLScheduleResourceElement;
-    'schedule-timeline': HTMLScheduleTimelineElement;
   }
 
 

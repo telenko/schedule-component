@@ -5,7 +5,7 @@
 :host {
     display: inline-block;
 }
-.slot:not(:last-child) .board-slot {
+.slot:not(:last-of-type) .board-slot {
     border-bottom: 1px solid var(--schedule-border-color, rgba(120, 120, 120, 0.7));;
     box-sizing: border-box;
 }

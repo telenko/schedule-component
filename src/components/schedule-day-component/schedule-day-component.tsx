@@ -19,25 +19,38 @@ export class ScheduleDayComponent {
 
     componentDidLoad() {
         this.onSlotChange();
-        this.element.shadowRoot.querySelector("slot").addEventListener("slotchange", () => {
+        this.element.shadowRoot.querySelector("slot[data-events]").addEventListener("slotchange", () => {
             this.onSlotChange();
+        });
+
+        this.onHeaderChange();
+        this.element.shadowRoot.querySelector("slot[name='header']").addEventListener("slotchange", () => {
+            this.onHeaderChange();
         });
     }
 
     render() {
-        // let resources = this.resources || [];
-        // const timelineWidth = 
-        
-        // const count = this.getTimeSlotsLength();
         return (
-            <div style={ {width: "100%", height: "100%"} }>                
-                <div class='container' style={ {position: "relative", height: "100%"} }>
+            <div class='root' style={ {width: "100%", height: "100%"} }>  
+                <div class='header-container'><slot name='header'></slot></div>              
+                <div class='container' style={ {position: "relative"} }>
                     <schedule-day-board range="6-22"></schedule-day-board>
-                    <slot></slot>
+                    <slot data-events></slot>
                 </div>  
             </div>
                       
         );
+    }
+
+    onHeaderChange() {
+        let headers = this.element.querySelectorAll('schedule-header[slot="header"]');
+        if (!headers.length) {
+            return;
+        }
+        headers.forEach((header, index) => {
+            header.style.width = `${100/headers.length}%`;
+            header.style.left = `${index*100/headers.length}%`;
+        });
     }
 
     onSlotChange() {

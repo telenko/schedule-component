@@ -1,7 +1,6 @@
 import { Component, Prop, Element } from '@stencil/core';
 
 import { Components } from '../../components';
-import { EventDimension } from '../timeline-component/timeline-component';
 
 @Component({
     tag: 'schedule-day-event',
@@ -36,14 +35,7 @@ export class ScheduleDayBoardComponent {
         this.to = this.element.getAttribute('to');
         this.from = this.element.getAttribute('from');
 
-        // const resourcesLength: number = this.schedule.resources.length;
         const dimension: EventDimension = this.board.getEventDimensions(this.from, this.to);
-        // const resourceWeight: number = 100 / resourcesLength;
-        // let position: number;
-        // const timeLineWidth = this.board.getTimeLineWidth();
-
-        // this.element.style.width = `calc(${(100 / resourcesLength )}% - ${timeLineWidth})`;
-        // this.element.style.left = `calc(${resourceWeight * position}% + ${timeLineWidth})`;
         this.element.style.top = `${dimension.top}%`;
         this.element.style.height = `${dimension.height}%`;
         this.element.style.position = 'absolute';
@@ -69,4 +61,13 @@ export class ScheduleDayBoardComponent {
         );
     }
 
+}
+
+export interface DateOffset {
+    top: number
+}
+
+export interface EventDimension {
+    top: number,
+    height: number
 }
