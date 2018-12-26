@@ -4,4 +4,6 @@ export interface ScheduleEvent {
 
     to: Date;
 
+    resourceId: any;
+
 }

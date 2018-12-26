@@ -65,6 +65,13 @@ export class ScheduleDayBoardComponent {
         };
     }
 
+    @Method()
+    getTimeByOffset(topPercentage: number): Time {
+        const minutes = 24 * 60 * topPercentage;
+        const hours = minutes / 60;
+        return { hours: Math.trunc(hours), minutes: Math.trunc(minutes - (hours * 60)) };
+    }
+
     static buildTimeSlots(fromRange: String): Array<number> {
         if (!fromRange) {
             return [];
@@ -100,11 +107,6 @@ export class ScheduleDayBoardComponent {
         );
     }
 
-    @Method()
-    getTimeLineWidth() {
-        return 50;
-    }
-
 }
 
 export interface DateOffset {
@@ -114,6 +116,11 @@ export interface DateOffset {
 export interface EventDimension {
     top: number,
     height: number
+}
+
+export interface Time {
+    hours: number;
+    minutes: number;
 }
 
 /**

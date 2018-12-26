@@ -32,8 +32,8 @@ export class ScheduleDayBoardComponent {
 
     boardReady() {
         //todo remove
-        this.to = this.element.getAttribute('to');
-        this.from = this.element.getAttribute('from');
+        this.to = this.to || this.element.getAttribute('to');
+        this.from = this.from || this.element.getAttribute('from');
 
         const dimension: EventDimension = this.board.getEventDimensions(this.from, this.to);
         this.element.style.top = `${dimension.top}%`;

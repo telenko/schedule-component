@@ -8,7 +8,36 @@
   <script src="/build/scheduler.js"></script>
   <script>
 
+    setTimeout(() => {
+      let s = document.querySelector('schedule-container');
+      s.date = new Date();
+      s.labels = { week: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']};
 
+      const from = new Date();
+      from.setHours(19);
+      const to = new Date(); to.setHours(from.getHours() + 2);
+      s.events = [{from, to, resourceId: 1}];
+      s.resources = [{name: "test", id:1}];
+      s.mode='day';
+
+      customElements.define('schedule-event-custom', class extends HTMLElement {
+        connectedCallback() {
+          if (this.shadowRoot) {return;}
+          this.attachShadow({mode: "open"});
+          this.shadowRoot.innerHTML = `
+            <style>
+                :host{  background-color: rgb(70, 70, 200); color:white;display: block;
+    font-family: Arial;
+    font-size: 12px;}
+            </style>
+            <div>
+              ${this.event.from.getHours()}:${this.event.from.getMinutes()}-
+              ${this.event.to.getHours()}:${this.event.to.getMinutes()}
+            </div>
+          `;
+        }
+      });
+    }, 1000);
 
   </script>
   <style>
@@ -33,7 +62,7 @@
     <!-- <schedule-timeline range="6-19" last="'Don't call me a framework' JS"></schedule-timeline>
   <div time style='left: 50px; position: absolute'>EVENT</div> -->
 
-    <schedule-day style='height: 700px;'>
+    <!-- <schedule-day style='height: 700px;'>
       <schedule-header slot='header'>
         header to be here..
       </schedule-header>
@@ -131,7 +160,9 @@
         </schedule-day-event>
       </schedule-resource>
 
-    </schedule-day>
+    </schedule-day> -->
+
+    <schedule-container style="width: 100%;"></schedule-container>
 
   </div>
 
