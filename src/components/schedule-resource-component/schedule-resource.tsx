@@ -54,6 +54,7 @@ export class ScheduleResourceComponent {
     handleClick(event:MouseEvent) {
         const { top, height } = this.element.getBoundingClientRect();
         const percentage = (event.clientY - top) / height;
+        this.board.getTimeByOffset(percentage);
         const minutes = 24 * 60 * percentage;
         const hours = minutes / 60;
         const resp = `${Math.trunc(hours)}:${Math.trunc(minutes - (hours * 60))}`;
