@@ -1,0 +1,185 @@
+{
+  "components": [
+    {
+      "tag": "schedule-container",
+      "dependencies": [
+        "schedule-day",
+        "schedule-day-event",
+        "schedule-resource"
+      ],
+      "componentClass": "ScheduleContainer",
+      "componentPath": "components/schedule-container/schedule-container.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/schedule-container/schedule-container.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "date",
+          "attr": "date"
+        },
+        {
+          "name": "events",
+          "attr": "events"
+        },
+        {
+          "name": "labels",
+          "attr": "labels"
+        },
+        {
+          "name": "mode",
+          "type": "Any",
+          "attr": "mode"
+        },
+        {
+          "name": "resources",
+          "attr": "resources"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "schedule-day",
+      "dependencies": [
+        "schedule-day-board"
+      ],
+      "componentClass": "ScheduleDayComponent",
+      "componentPath": "components/schedule-day-component/schedule-day-component.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/schedule-day-component/schedule-day-component.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "resources",
+          "attr": "resources"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      },
+      "shadow": true
+    },
+    {
+      "tag": "schedule-day-board",
+      "dependencies": [],
+      "componentClass": "ScheduleDayBoardComponent",
+      "componentPath": "components/schedule-day-board/schedule-day-board.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/schedule-day-board/schedule-day-board.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "isReady",
+          "type": "Boolean",
+          "mutable": true,
+          "attr": "is-ready"
+        },
+        {
+          "name": "range",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "range"
+        },
+        {
+          "name": "step",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "step"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getDateOffset"
+        },
+        {
+          "name": "getEventDimensions"
+        },
+        {
+          "name": "getTimeByOffset"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      },
+      "events": [
+        {
+          "event": "ready"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "schedule-day-event",
+      "dependencies": [],
+      "componentClass": "ScheduleDayBoardComponent",
+      "componentPath": "components/schedule-day-event/schedule-day-event.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/schedule-day-event/schedule-day-event.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "from",
+          "type": "String",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "from"
+        },
+        {
+          "name": "to",
+          "type": "String",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "to"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      },
+      "shadow": true
+    },
+    {
+      "tag": "schedule-resource",
+      "dependencies": [],
+      "componentClass": "ScheduleResourceComponent",
+      "componentPath": "components/schedule-resource-component/schedule-resource.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/schedule-resource-component/schedule-resource.css"
+          ]
+        }
+      },
+      "hostElement": {
+        "name": "element"
+      },
+      "events": [
+        {
+          "event": "select"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.15.2",
+    "typescriptVersion": "2.9.2"
+  },
+  "bundles": []
+}
