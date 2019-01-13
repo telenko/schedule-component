@@ -7,7 +7,7 @@ import { Components } from '../../components';
     styleUrl: 'schedule-day-event.css',
     shadow: true
 })
-export class ScheduleDayBoardComponent {
+export class ScheduleDayEventComponent {
 
     get board(): Components.ScheduleDayBoard {
         // @ts-ignore: Unreachable code error
@@ -31,10 +31,6 @@ export class ScheduleDayBoardComponent {
     to: string;
 
     boardReady() {
-        //todo remove
-        this.to = this.to || this.element.getAttribute('to');
-        this.from = this.from || this.element.getAttribute('from');
-
         const dimension: EventDimension = this.board.getEventDimensions(this.from, this.to);
         this.element.style.top = `${dimension.top}%`;
         this.element.style.height = `${dimension.height}%`;

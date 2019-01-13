@@ -1,4 +1,4 @@
-export class ScheduleDayBoardComponent {
+export class ScheduleDayEventComponent {
     get board() {
         let item = this.schedule.shadowRoot.querySelector("schedule-day-board");
         return item;
@@ -8,8 +8,6 @@ export class ScheduleDayBoardComponent {
         return parent;
     }
     boardReady() {
-        this.to = this.to || this.element.getAttribute('to');
-        this.from = this.from || this.element.getAttribute('from');
         const dimension = this.board.getEventDimensions(this.from, this.to);
         this.element.style.top = `${dimension.top}%`;
         this.element.style.height = `${dimension.height}%`;

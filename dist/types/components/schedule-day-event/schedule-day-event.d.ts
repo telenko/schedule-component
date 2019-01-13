@@ -1,6 +1,6 @@
 import '../../stencil.core';
 import { Components } from '../../components';
-export declare class ScheduleDayBoardComponent {
+export declare class ScheduleDayEventComponent {
     readonly board: Components.ScheduleDayBoard;
     readonly schedule: Components.ScheduleDay;
     element: HTMLElement;

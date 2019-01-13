@@ -122,7 +122,7 @@
     {
       "tag": "schedule-day-event",
       "dependencies": [],
-      "componentClass": "ScheduleDayBoardComponent",
+      "componentClass": "ScheduleDayEventComponent",
       "componentPath": "components/schedule-day-event/schedule-day-event.js",
       "styles": {
         "$": {
