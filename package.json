@@ -1,6 +1,6 @@
 {
   "name": "schedule-component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Stencil Component Starter",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
@@ -23,5 +23,6 @@
     "@stencil/core": "~0.18.0",
     "workbox-build": "3.4.1"
   },
+  "homepage": "https://github.com/telenko/schedule-component",
   "license": "MIT"
 }
