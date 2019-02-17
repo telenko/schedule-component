@@ -27,21 +27,6 @@ export class ScheduleResourceComponent {
         return parent as Components.ScheduleDay;
     }
 
-    // boardReady() {
-        
-    // }
-
-    // componentDidLoad() {
-    //     if (this.board.isReady) {
-    //         this.boardReady();
-    //         return;
-    //     }
-    //     // @ts-ignore: Unreachable code error
-    //     this.board.addEventListener('ready', () => {
-    //         this.boardReady();
-    //     });
-    // }
-
     render() {
         return (
             <div style={ {width: "100%", height: "100%", position: "relative"} } onClick={e => this.handleClick(e)}>
@@ -62,8 +47,4 @@ export class ScheduleResourceComponent {
         debugger;
     }
 
-}
-
-export interface SelectCallback {
-    time: string;
 }

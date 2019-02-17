@@ -108,3 +108,18 @@ export class ScheduleDayBoardComponent {
         }]; }
     static get style() { return "/**style-placeholder:schedule-day-board:**/"; }
 }
+/**
+ * <schedule-day>
+ *
+ *   <schedule-resource id='1'>
+ *       <schedule-event from="17.00" to="19.34">
+ *           <div>inner content</div>
+ *       </schedule-event>
+ *   </schedule-resource>
+ *
+ * </schedule-day>
+ *
+ * renderEvent(event) {
+ *    return <>
+ * }
+ */ 

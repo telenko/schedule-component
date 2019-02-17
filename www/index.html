@@ -1,0 +1,180 @@
+<!DOCTYPE html><html dir="ltr" lang="en"><head><meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <script src="/build/scheduler.js"></script>
+  <script>
+
+    setTimeout(() => {
+      let s = document.querySelector('schedule-container');
+      s.date = new Date();
+      s.labels = { week: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']};
+
+      const from = new Date();
+      from.setHours(19);
+      const to = new Date(); to.setHours(from.getHours() + 2);
+      s.events = [{from, to, resourceId: 1}];
+      s.resources = [{name: "test", id:1}];
+      s.mode='day';
+
+      customElements.define('schedule-event-custom', class extends HTMLElement {
+        connectedCallback() {
+          if (this.shadowRoot) {return;}
+          this.attachShadow({mode: "open"});
+          this.shadowRoot.innerHTML = `
+            <style>
+                :host{  background-color: rgb(70, 70, 200); color:white;display: block;
+    font-family: Arial;
+    font-size: 12px;}
+            </style>
+            <div>
+              ${this.event.from.getHours()}:${this.event.from.getMinutes()}-
+              ${this.event.to.getHours()}:${this.event.to.getMinutes()}
+            </div>
+          `;
+        }
+      });
+    }, 1000);
+
+  </script>
+  <style>
+    schedule-day-event>div>div {
+      font-family: Arial;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    schedule-day-event:hover>div>div {
+      opacity: 1;
+    }
+
+    schedule-day-event:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <!-- <schedule-timeline range="6-19" last="'Don't call me a framework' JS"></schedule-timeline>
+  <div time style='left: 50px; position: absolute'>EVENT</div> -->
+
+    <schedule-day style="height: 700px;">
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-header slot="header">
+        header to be here..
+      </schedule-header>
+      <schedule-resource>
+        <schedule-day-event from="10:00" to="13:30">
+          <div style="border-radius: 5px;background-color: rgba(64, 64, 168, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event</div>
+          </div>
+        </schedule-day-event>
+        <schedule-day-event from="18:00" to="19:30">
+          <div style="border-radius: 5px;background-color: rgba(64, 64, 168, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+      <schedule-resource>
+        <span slot="header">this is 2nd!!</span>
+        <schedule-day-event from="20:00" to="22:30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+      <schedule-resource>
+        <span slot="header">this is 3nd!!</span>
+        <schedule-day-event from="15:15" to="17:48">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event 3rd!!</div>
+          </div>
+        </schedule-day-event>
+        <schedule-day-event from="11.00" to="13.30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event 3rd!!</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+      <schedule-resource>
+        <span slot="header">this is first</span>
+        <schedule-day-event from="10.00" to="13.30">
+          <div style="border-radius: 5px;background-color: rgba(64, 64, 168, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+      <schedule-resource>
+        <span slot="header">this is 2nd!!</span>
+        <schedule-day-event from="20.00" to="22.30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+      <schedule-resource>
+        <span slot="header">this is 3nd!!</span>
+        <schedule-day-event from="15.00" to="17.30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event 3rd!!</div>
+          </div>
+        </schedule-day-event>
+        <schedule-day-event from="11.00" to="13.30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event 3rd!!</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+      <schedule-resource>
+        <span slot="header">this is 3nd!!</span>
+        <schedule-day-event from="15.00" to="17.30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event 3rd!!</div>
+          </div>
+        </schedule-day-event>
+        <schedule-day-event from="11.00" to="13.30">
+          <div style="border-radius: 5px;background-color: rgba(168, 64, 64, 0.9);color: white;">
+            <div style="padding: 10px;">Some value from event 3rd!!</div>
+          </div>
+        </schedule-day-event>
+      </schedule-resource>
+
+    </schedule-day>
+
+    <!-- <schedule-container style="width: 100%;"></schedule-container> -->
+
+  </div>
+
+
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      // auto-unregister service worker during dev mode
+      navigator.serviceWorker.getRegistration().then(function(registration) {
+        if (registration) {
+          registration.unregister().then(function() { location.reload(true) });
+        }
+      });
+    }
+  </script>
+
+
+
+</body></html>

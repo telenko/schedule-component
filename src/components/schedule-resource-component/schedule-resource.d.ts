@@ -1,5 +1,5 @@
-import '../../stencil.core';
-import { EventEmitter } from '../../stencil.core';
+import '../../../dist/types/stencil.core';
+import { EventEmitter } from '../../../dist/types/stencil.core';
 import { Components } from '../../components';
 export declare class ScheduleResourceComponent {
     select: EventEmitter;

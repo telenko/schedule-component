@@ -1,10 +1,12 @@
 export class ScheduleResourceComponent {
     get board() {
+        // @ts-ignore: Unreachable code error
         let item = this.schedule.shadowRoot.querySelector("schedule-day-board");
         return item;
     }
     get schedule() {
         let parent = this.element.closest('schedule-day');
+        // @ts-ignore: Unreachable code error
         return parent;
     }
     render() {

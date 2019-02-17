@@ -1,0 +1,33 @@
+{
+  "namespace": "scheduler",
+  "fsNamespace": "scheduler",
+  "loader": "../scheduler.js",
+  "corePolyfilled": "es5-build-disabled.js",
+  "core": "scheduler.core.js",
+  "components": {
+    "schedule-day": {
+      "bundleIds": {
+        "$": "schedule-day"
+      },
+      "encapsulation": "shadow"
+    },
+    "schedule-day-board": {
+      "bundleIds": {
+        "$": "schedule-day"
+      },
+      "encapsulation": "shadow"
+    },
+    "schedule-day-event": {
+      "bundleIds": {
+        "$": "schedule-day"
+      },
+      "encapsulation": "shadow"
+    },
+    "schedule-resource": {
+      "bundleIds": {
+        "$": "schedule-day"
+      },
+      "encapsulation": "shadow"
+    }
+  }
+}

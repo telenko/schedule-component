@@ -1,47 +1,6 @@
 {
   "components": [
     {
-      "tag": "schedule-container",
-      "dependencies": [
-        "schedule-day",
-        "schedule-day-event",
-        "schedule-resource"
-      ],
-      "componentClass": "ScheduleContainer",
-      "componentPath": "components/schedule-container/schedule-container.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "components/schedule-container/schedule-container.css"
-          ]
-        }
-      },
-      "props": [
-        {
-          "name": "date",
-          "attr": "date"
-        },
-        {
-          "name": "events",
-          "attr": "events"
-        },
-        {
-          "name": "labels",
-          "attr": "labels"
-        },
-        {
-          "name": "mode",
-          "type": "Any",
-          "attr": "mode"
-        },
-        {
-          "name": "resources",
-          "attr": "resources"
-        }
-      ],
-      "shadow": true
-    },
-    {
       "tag": "schedule-day",
       "dependencies": [
         "schedule-day-board"
@@ -178,8 +137,17 @@
   "collections": [],
   "compiler": {
     "name": "@stencil/core",
-    "version": "0.15.2",
-    "typescriptVersion": "2.9.2"
+    "version": "0.18.0",
+    "typescriptVersion": "3.3.3"
   },
-  "bundles": []
+  "bundles": [
+    {
+      "components": [
+        "schedule-day",
+        "schedule-day-board",
+        "schedule-day-event",
+        "schedule-resource"
+      ]
+    }
+  ]
 }

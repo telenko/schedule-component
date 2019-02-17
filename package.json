@@ -1,6 +1,6 @@
 {
   "name": "schedule-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stencil Component Starter",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
@@ -20,7 +20,7 @@
     "moment": "^2.23.0"
   },
   "devDependencies": {
-    "@stencil/core": "~0.15.2",
+    "@stencil/core": "~0.18.0",
     "workbox-build": "3.4.1"
   },
   "license": "MIT"

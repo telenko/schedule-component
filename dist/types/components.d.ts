@@ -9,37 +9,16 @@ import './stencil.core';
 
 
 import {
-  ScheduleEvent,
-} from './view/ScheduleEvent';
-import {
-  ScheduleResource,
-} from './view/ScheduleResource';
-import {
-  Labels,
-} from './components/schedule-container/schedule-container';
-import {
   DateOffset,
   EventDimension,
   Time,
 } from './components/schedule-day-board/schedule-day-board';
+import {
+  ScheduleResource,
+} from './view/ScheduleResource';
 
 
 export namespace Components {
-
-  interface ScheduleContainer {
-    'date': Date;
-    'events': Array<ScheduleEvent>;
-    'labels': Labels;
-    'mode': any;
-    'resources': Array<ScheduleResource>;
-  }
-  interface ScheduleContainerAttributes extends StencilHTMLAttributes {
-    'date'?: Date;
-    'events'?: Array<ScheduleEvent>;
-    'labels'?: Labels;
-    'mode'?: any;
-    'resources'?: Array<ScheduleResource>;
-  }
 
   interface ScheduleDayBoard {
     'getDateOffset': (time: string) => DateOffset;
@@ -80,7 +59,6 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    'ScheduleContainer': Components.ScheduleContainer;
     'ScheduleDayBoard': Components.ScheduleDayBoard;
     'ScheduleDay': Components.ScheduleDay;
     'ScheduleDayEvent': Components.ScheduleDayEvent;
@@ -88,19 +66,12 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
-    'schedule-container': Components.ScheduleContainerAttributes;
     'schedule-day-board': Components.ScheduleDayBoardAttributes;
     'schedule-day': Components.ScheduleDayAttributes;
     'schedule-day-event': Components.ScheduleDayEventAttributes;
     'schedule-resource': Components.ScheduleResourceAttributes;
   }
 
-
-  interface HTMLScheduleContainerElement extends Components.ScheduleContainer, HTMLStencilElement {}
-  var HTMLScheduleContainerElement: {
-    prototype: HTMLScheduleContainerElement;
-    new (): HTMLScheduleContainerElement;
-  };
 
   interface HTMLScheduleDayBoardElement extends Components.ScheduleDayBoard, HTMLStencilElement {}
   var HTMLScheduleDayBoardElement: {
@@ -127,7 +98,6 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
-    'schedule-container': HTMLScheduleContainerElement
     'schedule-day-board': HTMLScheduleDayBoardElement
     'schedule-day': HTMLScheduleDayElement
     'schedule-day-event': HTMLScheduleDayEventElement
@@ -135,7 +105,6 @@ declare global {
   }
 
   interface ElementTagNameMap {
-    'schedule-container': HTMLScheduleContainerElement;
     'schedule-day-board': HTMLScheduleDayBoardElement;
     'schedule-day': HTMLScheduleDayElement;
     'schedule-day-event': HTMLScheduleDayEventElement;

@@ -1,10 +1,12 @@
 export class ScheduleDayEventComponent {
     get board() {
+        // @ts-ignore: Unreachable code error
         let item = this.schedule.shadowRoot.querySelector("schedule-day-board");
         return item;
     }
     get schedule() {
         let parent = this.element.closest('schedule-day');
+        // @ts-ignore: Unreachable code error
         return parent;
     }
     boardReady() {
@@ -18,11 +20,13 @@ export class ScheduleDayEventComponent {
             this.boardReady();
             return;
         }
+        // @ts-ignore: Unreachable code error
         this.board.addEventListener('ready', () => {
             this.boardReady();
         });
     }
     render() {
+        // this.applyStyles();
         return (h("div", { class: 'root' },
             h("slot", null)));
     }

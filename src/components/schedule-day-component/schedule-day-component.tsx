@@ -11,9 +11,6 @@ export class ScheduleDayComponent {
     @Element()
     element;
 
-    // @Prop()
-    // day: Date;//?
-
     @Prop()
     resources: Array<ScheduleResource>;
 
