@@ -9,10 +9,11 @@ Currently lots of npm-components provides end-2-end ready components like schedu
 2. Calendar board panel with events, timeline
 3. Event inside board with its own layout and presentation
 4. Interaction with the board (drag&drop, adding new events etc)
+
 Looks pretty nice isn't it? By choosing any of such libraries developer can start using it immediately with lots of additional configuration and setup.
 But there are a set of different situations which make these (end-2-end) libraries impossible to use in a particular web application:
-1. Web application already has a set of it's own components to control date (datepickers), it's own buttons/icons, we can layout such panel on our own
-2. Web application has a pretty complex layout for a particular event in calendar board with it's own behavior (builtin event layout doesn't work). In this very case developers of libraries often makes their components pretty "flexible" be creating a large configuration for their library. But still - even with as most large configuration as possible - it is much friendly for a developer to build his child event-calendar component on his own isn't it?
+- Web application already has a set of it's own components to control date (datepickers), it's own buttons/icons, we can layout such panel on our own
+- Web application has a pretty complex layout for a particular event in calendar board with it's own behavior (builtin event layout doesn't work). In this very case developers of libraries often makes their components pretty "flexible" be creating a large configuration for their library. But still - even with as most large configuration as possible - it is much friendly for a developer to build his child event-calendar component on his own isn't it?
 
 This reasons moved me to create a library with a set of presenter-components. Presenter component is a new term which means (mostly) component without real data control, but DOM control. Good example of complex native presenter component is <table>. To add header of a table you can add <thead> element, to add row <tr>. But native table won't let you an ability of adding paging, filtering, sorting or virtual scrolling - all data manipulations should be done by a wrappers data containers.
 
@@ -28,7 +29,7 @@ defineCustomElements(window);
 3. Using components in your app (components api below)
 
 # Components API
-We didn't randomly compared scheduler to <table> element. Comparing with table can simplify understanding of scheduler API.
+We didn't randomly compared scheduler to table element. Comparing with table can simplify understanding of scheduler API.
 1. ```<schedule-day>``` is a container element (like ```<table>```)
 2. ```<schedule-header>``` is a header column (like ```<th>```), but instead of headers container (```<thead>```) ```slot='header'``` should be used.
 3. ```<schedule-resource>``` can be compared with ```<tr>``` element. Resource represents a group of events in a board (but unlike to row - vertically like a column)
