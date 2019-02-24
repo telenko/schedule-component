@@ -1,7 +1,7 @@
 {
-  "name": "schedule-component",
+  "name": "@telenko/schedule-component",
   "version": "0.0.3",
-  "description": "Stencil Component Starter",
+  "description": "Schedule components",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/ionic.js",

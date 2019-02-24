@@ -20,7 +20,7 @@ This reasons moved me to create a library with a set of presenter-components. Pr
 # API
 1. Importing scheduler into your web application
 ```
-import { defineCustomElements } from 'schedule-component/dist/loader';
+import { defineCustomElements } from '@telenko/schedule-component/dist/loader';
 ```
 2. Defining components
 ```
